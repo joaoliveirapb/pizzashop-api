@@ -1,0 +1,18 @@
+services:
+  db:
+    image: bitnami/postgresql:latest
+    ports:
+      - '5432:5432'
+    env_file:
+      - .env
+    volumes:
+      - pizzashop_data:/bitnami/postgresql
+    networks:
+      - pizzashop-api-network
+
+volumes:
+  pizzashop_data:
+
+networks:
+  pizzashop-api-network:
+    driver: bridge
