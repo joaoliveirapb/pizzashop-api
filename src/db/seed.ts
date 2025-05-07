@@ -1,6 +1,6 @@
-import { db } from './connection'
-import { users, restaurants } from './schema'
 import { faker } from '@faker-js/faker'
+import { db } from './connection'
+import { restaurants, users } from './schema'
 
 // Reset database
 await db.delete(users)
@@ -25,13 +25,16 @@ await db.insert(users).values([
 console.log('Created customers!')
 
 // Create manager
-const [manager] = await db.insert(users).values([
-  {
-    name: faker.person.fullName(),
-    email: 'admin@admin.com',
-    role: 'manager',
-  },
-]).returning({ id: users.id })
+const [manager] = await db
+  .insert(users)
+  .values([
+    {
+      name: faker.person.fullName(),
+      email: 'admin@admin.com',
+      role: 'manager',
+    },
+  ])
+  .returning({ id: users.id })
 
 console.log('Created manager!')
 
@@ -40,7 +43,7 @@ await db.insert(restaurants).values([
   {
     name: faker.company.name(),
     description: faker.lorem.paragraph(),
-    managerId: manager?.id
+    managerId: manager?.id,
   },
 ])
 
