@@ -37,7 +37,7 @@ export const authenticateFromLink = new Elysia().use(auth).get(
 
     await signUser({
       sub: authLinkFromCode.userId,
-      restaurantId: managedRestaurant?.managerId,
+      restaurantId: managedRestaurant?.id,
     })
 
     await db.delete(authLinks).where(eq(authLinks.code, code))
