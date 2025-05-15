@@ -27,7 +27,7 @@ export const orderItemsRelations = relations(orderItems, ({ one }) => {
       relationName: 'order_item_order',
     }),
     product: one(products, {
-      fields: [orderItems.orderId],
+      fields: [orderItems.productId],
       references: [products.id],
       relationName: 'order_item_product',
     }),
