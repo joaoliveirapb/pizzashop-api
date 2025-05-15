@@ -18,7 +18,7 @@ export const orders = pgTable('orders', {
   customerId: text('customer_id').references(() => users.id, {
     onDelete: 'set null',
   }),
-  restaurantId: text('restaurant_id').references(() => users.id, {
+  restaurantId: text('restaurant_id').references(() => restaurants.id, {
     onDelete: 'cascade',
   }),
   status: orderStatusEnum('status').default('pending').notNull(),

@@ -43,6 +43,20 @@
       "when": 1747182347742,
       "tag": "0005_daffy_natasha_romanoff",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1747240861914,
+      "tag": "0006_fine_agent_brand",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1747344938030,
+      "tag": "0007_sudden_boom_boom",
+      "breakpoints": true
     }
   ]
 }
